@@ -52,7 +52,7 @@ class HelpModule extends AbstractBaseModule
         $dependencies = $this->_containerHas($config, 'dependencies')
             ? $this->_containerGet($config, 'dependencies')
             : [];
-
+        $this->config = $config;
         $this->_initModule($key, $dependencies, $configFactory, $containerFactory, $compContainerFactory);
         $this->_initModuleEvents($eventManager, $eventFactory);
     }
