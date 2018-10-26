@@ -70,7 +70,10 @@ class HelpModule extends AbstractBaseModule
         $servicesFile = $this->_containerGet($this->config, 'services_file_path');
 
         return $this->_setupContainer(
-            $this->_loadPhpConfigFile($configFile),
+            $this->_createCompositeContainer([
+                $this->_createConfig([$this->key => $this->config]),
+                $this->_createConfig($this->_loadPhpConfigFile($configFile)),
+            ]),
             $this->_loadPhpConfigFile($servicesFile)
         );
     }
