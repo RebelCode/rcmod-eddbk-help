@@ -6,11 +6,11 @@ return [
         'dist_ver' => '0.1',
         'beacon'   => [
             'js' => [
-                'file'   => '${dist_dir}/${dist_ver}/beacon.min.js',
+                'file'   => '${eddbk_help/dist_dir}/${eddbk_help/dist_ver}/beacon.min.js',
                 'config' => [],
             ],
             'css' => [
-                'file'   => '${dist_dir}/${dist_ver}/beacon.css',
+                'file'   => '${eddbk_help/dist_dir}/${eddbk_help/dist_ver}/beacon.css',
             ]
         ],
     ],
