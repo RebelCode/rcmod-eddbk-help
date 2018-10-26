@@ -2,10 +2,13 @@
 
 return [
     'eddbk_help' => [
-        'dist_dir' => __DIR__ . '/dist',
+        'dist_dir' => 'dist',
+        'dist_ver' => '0.1',
         'beacon'   => [
-            'file'   => '${dist_dir}/beacon.min.js',
-            'config' => [],
+            'js' => [
+                'file'   => '${dist_dir}/${dist_ver}/beacon.min.js',
+                'config' => [],
+            ],
         ],
     ],
 ];
