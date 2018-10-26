@@ -82,6 +82,6 @@ class HelpModule extends AbstractBaseModule
      */
     public function run(ContainerInterface $c = null)
     {
-        $this->_attach('wp_enqueue_style', $c->get('eddbk_enqueue_beacon_handler'));
+        $this->_attach('wp_enqueue_scripts', $c->get('eddbk_enqueue_beacon_handler'));
     }
 }
