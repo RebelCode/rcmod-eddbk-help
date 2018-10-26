@@ -4,7 +4,12 @@ use Psr\Container\ContainerInterface;
 use RebelCode\EddBookings\Help\EnqueueBeaconHandler;
 
 return [
-    'eddbk_enqueue_beacon_handler' => function (ContainerInterface $c) {
+    /*
+     * The handler that enqueues the assets for the Beacon button.
+     *
+     * @since [*next-version*]
+     */
+    'eddbk_enqueue_beacon_handler'  => function (ContainerInterface $c) {
         $moduleDir  = $c->get('eddbk_help/module_dir');
         $jsFile     = $c->get('eddbk_help/beacon/js/file');
         $cssFile    = $c->get('eddbk_help/beacon/css/file');
