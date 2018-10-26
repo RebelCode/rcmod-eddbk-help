@@ -55,7 +55,7 @@ class EnqueueBeaconHandler implements InvocableInterface
         $parts = explode('_', $base);
 
         // If no parts or the first part is incorrect, stop
-        if (count($parts) === 0 || $parts[0] !== 'toplevel' || $parts[0] !== 'bookings') {
+        if (count($parts) === 0 || ($parts[0] !== 'toplevel' && $parts[0] !== 'bookings')) {
             return;
         }
 
