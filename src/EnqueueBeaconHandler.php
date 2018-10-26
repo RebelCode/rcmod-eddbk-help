@@ -40,6 +40,10 @@ class EnqueueBeaconHandler implements InvocableInterface
      */
     public function __invoke()
     {
+        if (!$this->_wpIsAdmin()) {
+            return;
+        }
+
         $screen = $this->_wpGetCurrentScreen();
 
         if ($screen === null) {
@@ -75,5 +79,17 @@ class EnqueueBeaconHandler implements InvocableInterface
     protected function _wpGetCurrentScreen()
     {
         return \get_current_screen();
+    }
+
+    /**
+     * Retrieves whether the current screen is a WP Admin screen
+     *
+     * @since [*next-version*]
+     *
+     * @return bool True if the current screen is a WP Admin screen, false if not.
+     */
+    protected function _wpIsAdmin()
+    {
+        return \is_admin();
     }
 }
