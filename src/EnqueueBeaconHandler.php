@@ -13,24 +13,24 @@ use Dhii\Util\String\StringableInterface as Stringable;
 class EnqueueBeaconHandler implements InvocableInterface
 {
     /**
-     * The path to the Beacon JS file.
+     * The URL to the Beacon JS file.
      *
      * @since [*next-version*]
      *
      * @var string|Stringable
      */
-    protected $beaconJsFile;
+    protected $beaconJsUrl;
 
     /**
      * Constructor.
      *
      * @since [*next-version*]
      *
-     * @param string|Stringable $beaconJsFile The path to the Beacon JS file.
+     * @param string|Stringable $beaconJsUrl The URL to the Beacon JS file.
      */
-    public function __construct($beaconJsFile)
+    public function __construct($beaconJsUrl)
     {
-        $this->beaconJsFile = $beaconJsFile;
+        $this->beaconJsUrl = $beaconJsUrl;
     }
 
     /**
@@ -65,7 +65,7 @@ class EnqueueBeaconHandler implements InvocableInterface
         // Check if it starts with the "eddbk-" prefix
         if (strpos($pageId, 'eddbk-') === 0) {
             // Enqueue beacon scripts
-            wp_enqueue_script('eddbk_beacon_js', $this->beaconJsFile);
+            wp_enqueue_script('eddbk_beacon_js', $this->beaconJsUrl);
         }
     }
 
