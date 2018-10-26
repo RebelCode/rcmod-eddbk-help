@@ -54,7 +54,7 @@ class EnqueueBeaconHandler implements InvocableInterface
      */
     public function __invoke()
     {
-        if ($pageId = $this->_getEddBkPageId()) {
+        if ($this->_getEddBkPageId()) {
             // Enqueue beacon scripts
             wp_enqueue_script('eddbk_beacon_js', $this->beaconJsUrl);
             // Enqueue beacon styles
