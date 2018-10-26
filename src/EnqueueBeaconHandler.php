@@ -22,15 +22,26 @@ class EnqueueBeaconHandler implements InvocableInterface
     protected $beaconJsUrl;
 
     /**
+     * The URL to the Beacon CSS file.
+     *
+     * @since [*next-version*]
+     *
+     * @var string|Stringable
+     */
+    protected $beaconCssUrl;
+
+    /**
      * Constructor.
      *
      * @since [*next-version*]
      *
-     * @param string|Stringable $beaconJsUrl The URL to the Beacon JS file.
+     * @param string|Stringable $beaconJsUrl  The URL to the Beacon JS file.
+     * @param string|Stringable $beaconCssUrl The URL to the Beacon CSS file.
      */
-    public function __construct($beaconJsUrl)
+    public function __construct($beaconJsUrl, $beaconCssUrl)
     {
-        $this->beaconJsUrl = $beaconJsUrl;
+        $this->beaconJsUrl  = $beaconJsUrl;
+        $this->beaconCssUrl = $beaconCssUrl;
     }
 
     /**
@@ -66,6 +77,8 @@ class EnqueueBeaconHandler implements InvocableInterface
         if (strpos($pageId, 'eddbk-') === 0) {
             // Enqueue beacon scripts
             wp_enqueue_script('eddbk_beacon_js', $this->beaconJsUrl);
+            // Enqueue beacon styles
+            wp_enqueue_style('eddbk_beacon_js', $this->beaconCssUrl);
         }
     }
 

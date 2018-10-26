@@ -9,6 +9,9 @@ return [
                 'file'   => '${dist_dir}/${dist_ver}/beacon.min.js',
                 'config' => [],
             ],
+            'css' => [
+                'file'   => '${dist_dir}/${dist_ver}/beacon.css',
+            ]
         ],
     ],
 ];
