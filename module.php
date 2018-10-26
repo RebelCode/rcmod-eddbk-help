@@ -8,6 +8,8 @@ return function (ContainerInterface $c) {
         [
             'key'                => 'eddbk_help',
             'dependencies'       => [],
+            'module_dir'         => 'rcmod-eddbk-help',
+            'module_dir_path'    => __DIR__,
             'config_file_path'   => __DIR__ . '/config.php',
             'services_file_path' => __DIR__ . '/services.php',
         ],
