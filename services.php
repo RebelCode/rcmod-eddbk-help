@@ -2,6 +2,7 @@
 
 use Psr\Container\ContainerInterface;
 use RebelCode\EddBookings\Help\EnqueueBeaconHandler;
+use RebelCode\EddBookings\Help\HideWpVersionHandler;
 
 return [
     /*
@@ -21,5 +22,13 @@ return [
             plugins_url($jsPath, $pluginPath),
             plugins_url($cssPath, $pluginPath)
         );
+    },
+    /*
+     * The handler that hides the WP version from the footer to accommodate the Beacon button.
+     *
+     * @since [*next-version*]
+     */
+    'eddbk_hide_wp_version_handler' => function (ContainerInterface $c) {
+        return new HideWpVersionHandler();
     },
 ];
