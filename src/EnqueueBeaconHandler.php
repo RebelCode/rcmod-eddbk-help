@@ -12,6 +12,9 @@ use Dhii\Util\String\StringableInterface as Stringable;
  */
 class EnqueueBeaconHandler implements InvocableInterface
 {
+    /* @since [*next-version*] */
+    use GetEddBkPageIdCapableTrait;
+
     /**
      * The URL to the Beacon JS file.
      *
@@ -51,30 +54,7 @@ class EnqueueBeaconHandler implements InvocableInterface
      */
     public function __invoke()
     {
-        if (!$this->_wpIsAdmin()) {
-            return;
-        }
-
-        $screen = $this->_wpGetCurrentScreen();
-
-        if ($screen === null) {
-            return;
-        }
-
-        // Get screen base and split by underscore
-        $base  = $screen->base;
-        $parts = explode('_', $base);
-
-        // If no parts or the first part is incorrect, stop
-        if (count($parts) === 0 || ($parts[0] !== 'toplevel' && $parts[0] !== 'bookings')) {
-            return;
-        }
-
-        // Get the last part
-        $pageId = end($parts);
-
-        // Check if it starts with the "eddbk-" prefix
-        if (strpos($pageId, 'eddbk-') === 0) {
+        if ($pageId = $this->_getEddBkPageId()) {
             // Enqueue beacon scripts
             wp_enqueue_script('eddbk_beacon_js', $this->beaconJsUrl);
             // Enqueue beacon styles
@@ -83,11 +63,9 @@ class EnqueueBeaconHandler implements InvocableInterface
     }
 
     /**
-     * Retrieves the current WordPress screen.
+     * {@inheritdoc}
      *
      * @since [*next-version*]
-     *
-     * @return \WP_Screen|null The screen object or null if not applicable.
      */
     protected function _wpGetCurrentScreen()
     {
@@ -95,11 +73,9 @@ class EnqueueBeaconHandler implements InvocableInterface
     }
 
     /**
-     * Retrieves whether the current screen is a WP Admin screen
+     * {@inheritdoc}
      *
      * @since [*next-version*]
-     *
-     * @return bool True if the current screen is a WP Admin screen, false if not.
      */
     protected function _wpIsAdmin()
     {
