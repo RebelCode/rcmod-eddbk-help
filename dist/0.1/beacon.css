@@ -1,4 +1,9 @@
 #HSBeaconFabButton {
-    bottom: 10px !important;
+    bottom: 16px !important;
+    right: 20px !important;
+}
+
+#HSBeaconContainerFrame {
+    bottom: 86px !important;
     right: 20px !important;
 }
