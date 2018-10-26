@@ -1,7 +1,7 @@
 {
     "name": "rebelcode/rcmod-eddbk-help",
     "description": "A module for EDD Bookings that adds built-in help and support features.",
-    "type": "library",
+    "type": "rc-module",
     "license": "GPL-3.0",
     "authors": [
         {
