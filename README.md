@@ -1,4 +1,4 @@
-# RebelCode - RebelCode - EDD Bookings - Help Module
+# RebelCode - EDD Bookings - Help Module
 
 [![Build Status](https://travis-ci.org/RebelCode/rcmod-eddbk-help.svg?branch=master)](https://travis-ci.org/RebelCode/rcmod-eddbk-help)
 [![Code Climate](https://codeclimate.com/github/RebelCode/rcmod-eddbk-help/badges/gpa.svg)](https://codeclimate.com/github/RebelCode/rcmod-eddbk-help)
